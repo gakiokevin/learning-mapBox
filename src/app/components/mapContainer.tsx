@@ -3,11 +3,17 @@ import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import { updateArea } from "../helpers/utils"; 
+import { Polygon } from "../types/interfaces";
 
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
 
-const MapContainer = ({ setDrawnPolygon, setArea }: any) => {
+interface MapContainerProps {
+  setDrawnPolygon: React.Dispatch<React.SetStateAction<Polygon | null>>;
+  setArea: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+const MapContainer:React.FC<MapContainerProps> = ({ setDrawnPolygon, setArea }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const drawRef = useRef<MapboxDraw | null>(null);

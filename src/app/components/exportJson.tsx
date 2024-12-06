@@ -1,6 +1,9 @@
 import React from "react";
-
-const ExportBtn = ({ drawnPolygon }: any) => {
+import { Polygon } from "../types/interfaces";
+  interface ExportProps {
+    drawnPolygon:Polygon | null
+  }
+const ExportBtn:React.FC<ExportProps> = ({ drawnPolygon }) => {
   const exportGeoJSON = () => {
     if (!drawnPolygon) {
       alert("Please draw a polygon first!");

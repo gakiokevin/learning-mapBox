@@ -1,8 +1,15 @@
 import React from "react";
+import { Polygon } from "../types/interfaces";
+interface DrawPolygonProps {
+  drawnPolygon: Polygon | null;
+  area: string | null;
+}
 
-const DrawPolygon = ({ drawnPolygon, area }: any) => {
+const DrawPolygon:React.FC<DrawPolygonProps> = ({ drawnPolygon, area }) => {
+  
   return (
     <div className="mb-5 font-bold text-center">
+     
   {drawnPolygon
     ? "Polygon drawn! You can delete it by clicking the trash icon."
     : "Draw a polygon by clicking the map."}
